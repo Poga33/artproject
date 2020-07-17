@@ -1,8 +1,10 @@
 const express = require('express')
 const router = express.Router()
 
-const { sayHi } = require('../controllers/user.js')
+const { userSignupValidator } = require('../validator/index')
 
-router.get('/', sayHi)
+const { signup } = require('../controllers/user.js')
+
+router.post('/signup', userSignupValidator, signup)
 
 module.exports = router

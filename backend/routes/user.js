@@ -1,10 +1,11 @@
 const express = require('express')
 const router = express.Router()
 
-const { requireSignin } = require('../controllers/auth')
+const { requireSignin, isAuth, isAdmin } = require('../controllers/auth')
 const { userById } = require('../controllers/user.js')
 
-router.get('/secret/:userId', requireSignin, (req, res) => {
+// in order to acacess this route you need to be the currently logged in user and also an admin
+router.get('/secret/:userId', requireSignin, isAuth, isAdmin, (req, res) => {
   res.json({ user: req.profile })
 })
 

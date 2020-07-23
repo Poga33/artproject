@@ -9,6 +9,7 @@ router.get('/secret/:userId', requireSignin, isAuth, isAdmin, (req, res) => {
   res.json({ user: req.profile })
 })
 
+// every time there's 'userId' in the route, this method will run
 router.param('userId', userById)
 
 module.exports = router

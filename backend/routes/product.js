@@ -6,7 +6,9 @@ const {
   productById,
   read,
   remove,
-  update
+  update,
+  list,
+  listRelated
 } = require('../controllers/product.js')
 const { requireSignin, isAuth, isAdmin } = require('../controllers/auth')
 const { userById } = require('../controllers/user')
@@ -27,6 +29,8 @@ router.put(
   isAdmin,
   update
 )
+router.get('/products', list)
+router.get('/products/related/:productId', listRelated)
 
 // every time there's 'userId' in the route, this method will run
 router.param('userId', userById)

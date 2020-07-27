@@ -16,7 +16,7 @@ const Layout = ({
         <p className='lead'>{description}</p>
       </div>
 
-      <div className={className}>{children}</div>
+      {children}
     </div>
   )
 }

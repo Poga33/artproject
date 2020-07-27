@@ -1,0 +1,23 @@
+@import '../../styles/variables/colors';
+
+.main-menu {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-link {
+    margin: 0 1rem;
+    text-transform: uppercase;
+
+    &.active,
+    &:hover {
+      color: $mainRed;
+    }
+  }
+
+  .logo-link img {
+    width: 20rem;
+  }
+}

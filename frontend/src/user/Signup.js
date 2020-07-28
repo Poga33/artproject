@@ -22,6 +22,7 @@ const Signup = () => {
   const handleSubmit = e => {
     e.preventDefault()
     setValues({ ...values, error: false })
+
     signup({ name, email, password }).then(data => {
       if (data.error) {
         setValues({ ...values, error: data.error, success: false })
@@ -38,44 +39,6 @@ const Signup = () => {
     })
   }
 
-  const signUpForm = () => (
-    <form>
-      <div className='form-group'>
-        <label className='text-muted'>Name</label>
-        <input
-          onChange={handleChange('name')}
-          type='text'
-          className='form-control'
-          value={name}
-        />
-      </div>
-
-      <div className='form-group'>
-        <label className='text-muted'>Email</label>
-        <input
-          onChange={handleChange('email')}
-          type='email'
-          className='form-control'
-          value={email}
-        />
-      </div>
-
-      <div className='form-group'>
-        <label className='text-muted'>Password</label>
-        <input
-          onChange={handleChange('password')}
-          type='password'
-          className='form-control'
-          value={password}
-        />
-      </div>
-
-      <button onClick={handleSubmit} className='btn-primary'>
-        Submit
-      </button>
-    </form>
-  )
-
   const showError = () => (
     <div
       className='alert alert-danger'
@@ -90,16 +53,59 @@ const Signup = () => {
       className='alert alert-info'
       style={{ display: success ? '' : 'none' }}
     >
-      Your new account was created! Please <Link to='/signin'>Sign in</Link>!
+      Your new account was created!
+      <div className='signin-success'>
+        <Link to='/signin'>Sign in</Link>
+      </div>
     </div>
   )
 
+  const signUpForm = () => (
+    <form>
+      <h2 className='form-title'>Looking for art? Sign Up below!</h2>
+
+      <div className='form-group'>
+        <input
+          onChange={handleChange('name')}
+          type='text'
+          className='form-control'
+          value={name}
+          placeholder='Name'
+        />
+      </div>
+
+      <div className='form-group'>
+        <input
+          onChange={handleChange('email')}
+          type='email'
+          className='form-control'
+          value={email}
+          placeholder='Email'
+        />
+      </div>
+
+      <div className='form-group'>
+        <input
+          onChange={handleChange('password')}
+          type='password'
+          className='form-control'
+          value={password}
+          placeholder='Password'
+        />
+      </div>
+
+      <button onClick={handleSubmit} className='btn-primary'>
+        Submit
+      </button>
+    </form>
+  )
+
   return (
-    <Layout title='Signup Page' description='Signup Up'>
-      <div className='signup-form'>
-        {showError()}
-        {showSuccess()}
+    <Layout title='Sign Up Page'>
+      <div className='signup-form form-container'>
         {signUpForm()}
+        {showSuccess()}
+        {showError()}
       </div>
     </Layout>
   )

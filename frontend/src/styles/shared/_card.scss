@@ -1,0 +1,52 @@
+@import '../variables/colors';
+
+.card {
+  box-shadow: 0px 0.3rem 1.5rem $boxShadow;
+  border-radius: 1rem;
+
+  .card-title {
+    background: $mainRed;
+    padding: 1rem 2rem;
+    color: $white;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+
+  .card-list {
+    padding: 2rem;
+
+    li {
+      border-bottom: 0.1rem solid $lightGray;
+      font-size: 1.6rem;
+      padding: 1rem 0;
+      margin-bottom: 1rem;
+
+      a {
+        position: relative;
+        padding-left: 1rem;
+        transition: all 0.5s;
+
+        &:hover {
+          color: $mainRed;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          border-color: transparent black;
+          border-style: solid;
+          border-width: 0.5rem 0rem 0.5rem 0.5rem;
+          height: 0rem;
+          width: 0rem;
+        }
+      }
+
+      span {
+        font-weight: 700;
+      }
+    }
+  }
+}

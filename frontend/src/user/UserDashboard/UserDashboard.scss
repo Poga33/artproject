@@ -1,0 +1,12 @@
+.user-wrapper {
+  display: flex;
+
+  .user-links-col {
+    flex-basis: 25%;
+    margin-right: 4rem;
+  }
+
+  .user-info-col {
+    flex-basis: 75%;
+  }
+}

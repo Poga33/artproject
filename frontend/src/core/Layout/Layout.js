@@ -3,7 +3,7 @@ import React from 'react'
 import Menu from '../Menu/Menu'
 import './Layout.scss'
 
-const Layout = ({ title = 'Title', children, className }) => {
+const Layout = ({ title = 'Title', children }) => {
   return (
     <div className='container'>
       <Menu />

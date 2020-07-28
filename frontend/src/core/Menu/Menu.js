@@ -31,6 +31,28 @@ const Menu = ({ history }) => {
             </Link>
           </li>
 
+          {isAuthenticated() && isAuthenticated().user.role === 0 && (
+            <li className='nav-item'>
+              <Link
+                className={`nav-link ${isActive(history, '/user/dashboard')}`}
+                to='/user/dashboard'
+              >
+                Dashboard
+              </Link>
+            </li>
+          )}
+
+          {isAuthenticated() && isAuthenticated().user.role === 1 && (
+            <li className='nav-item'>
+              <Link
+                className={`nav-link ${isActive(history, '/admin/dashboard')}`}
+                to='/admin/dashboard'
+              >
+                Dashboard
+              </Link>
+            </li>
+          )}
+
           {!isAuthenticated() && (
             <>
               <li className='nav-item'>
@@ -38,7 +60,7 @@ const Menu = ({ history }) => {
                   className={`nav-link ${isActive(history, '/signin')}`}
                   to='/signin'
                 >
-                  Signin
+                  Sign in
                 </Link>
               </li>
 
@@ -47,7 +69,7 @@ const Menu = ({ history }) => {
                   className={`nav-link ${isActive(history, '/signup')}`}
                   to='/signup'
                 >
-                  Signup
+                  Sign up
                 </Link>
               </li>
             </>

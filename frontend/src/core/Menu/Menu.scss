@@ -7,6 +7,15 @@
     justify-content: space-between;
   }
 
+  .nav-item {
+    display: inline-block;
+
+    span {
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+  }
+
   .nav-link {
     margin: 0 1rem;
     text-transform: uppercase;

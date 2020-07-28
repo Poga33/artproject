@@ -1,0 +1,18 @@
+@import '../variables/colors';
+
+.alert {
+  margin-top: 2rem;
+}
+
+.alert-danger {
+  color: $mainRed;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.alert-info {
+  background: $greenLight;
+  color: $white;
+  padding: 1rem;
+  border-radius: 1rem;
+}

@@ -1,22 +1,17 @@
 import React from 'react'
 
 import Menu from '../Menu/Menu'
+import './Layout.scss'
 
-const Layout = ({
-  title = 'Title',
-  description = 'Description',
-  children,
-  className
-}) => {
+const Layout = ({ title = 'Title', children, className }) => {
   return (
     <div className='container'>
       <Menu />
       <div className='jumbotron'>
-        <h2>{title}</h2>
-        <p className='lead'>{description}</p>
+        <h1>{title}</h1>
       </div>
 
-      <div className={className}>{children}</div>
+      {children}
     </div>
   )
 }

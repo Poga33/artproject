@@ -3,3 +3,8 @@
 @import 'resets/reset.local.scss';
 @import 'resets/typography.scss';
 @import 'resets/generalClasses';
+
+// shared
+@import 'shared/forms';
+@import 'shared/buttons';
+@import 'shared/alerts';

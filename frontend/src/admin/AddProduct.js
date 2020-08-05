@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 
 import Layout from '../core/Layout/Layout'
 import { isAuthenticated } from '../auth'
-import { createProduct, getCategories } from './apiAdmin'
+import { createProduct } from './apiAdmin'
+import { getCategories } from '../core/apiCore'
 
 const AddProduct = () => {
   const { user, token } = isAuthenticated()

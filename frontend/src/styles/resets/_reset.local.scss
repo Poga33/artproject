@@ -10,6 +10,11 @@ a {
   color: inherit;
   cursor: pointer;
   font-size: 1.6rem;
+  transition: all 0.5s;
+
+  &:hover {
+    color: #ba3326;
+  }
 }
 button {
   background-color: transparent;

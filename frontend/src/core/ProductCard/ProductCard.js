@@ -8,11 +8,15 @@ import './ProductCard.scss'
 const ProductCard = ({ product }) => {
   return (
     <div className='product-card'>
-      <h3>{product.name}</h3>
       <div className='card-body'>
         <ShowImage item={product} url='product' />
-        <p>{product.description}</p>
-        <p>{product.price}</p>
+        <h3 className='product-title'>{product.name}</h3>
+        <p className='product-description'>
+          {`${product.description.substring(0, 100)} ...`}
+        </p>
+        <p className='product-price'>{product.price} Lei</p>
+      </div>
+      <div className='product-cta'>
         <Link to='/'>
           <button className='btn btn-secondary'>view product</button>
         </Link>

@@ -44,7 +44,7 @@ const Home = () => {
           return <ProductCard key={index} product={product} />
         })}
       </section>
-
+      <hr className='sections-separator' />
       <h2 className='products-section-title'>Best sellers</h2>
       <section className='products-wrapper'>
         {productsBySell.map((product, index) => {

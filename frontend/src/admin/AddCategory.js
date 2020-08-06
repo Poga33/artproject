@@ -51,7 +51,7 @@ const AddCategory = () => {
           required
         />
       </div>
-      <button className='btn-primary'>Create Category</button>
+      <button className='btn btn-primary'>Create Category</button>
     </form>
   )
 

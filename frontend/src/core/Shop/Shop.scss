@@ -1,0 +1,20 @@
+.shop-wrapper {
+  display: flex;
+
+  .sidebar {
+    flex-basis: calc(33.33% - 2rem);
+    margin-right: 2rem;
+  }
+
+  .main-content {
+    flex-basis: 66.67%;
+
+    .products-shop-wrapper .product-card {
+      flex-basis: calc(33.33% - 2rem);
+    }
+  }
+
+  .col-title {
+    margin-bottom: 2rem;
+  }
+}

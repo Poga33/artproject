@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import './RadioBox.scss'
+
 const RadioBox = ({ prices, handleFilters }) => {
   const [value, setValue] = useState(0)
 

@@ -4,6 +4,7 @@ import { getCategories, getFilteredProducts } from '../apiCore'
 import Layout from '../Layout/Layout'
 import Checkbox from '../Checkbox/Checkbox'
 import RadioBox from '../RadioBox/RadioBox'
+import ProductCard from '../ProductCard/ProductCard'
 import { prices } from '../FixedPrices/fixedPrices'
 
 import './Shop.scss'
@@ -19,6 +20,7 @@ const Shop = () => {
   const [error, setError] = useState(false)
   const [limit, setLimit] = useState(6)
   const [skip, setSkip] = useState(0)
+  const [size, setSize] = useState(0)
   const [filteredResults, setFilteredResults] = useState(0)
 
   const init = () => {
@@ -36,7 +38,23 @@ const Shop = () => {
       if (data.error) {
         setError(data.error)
       } else {
-        setFilteredResults(data)
+        setFilteredResults(data.data)
+        setSize(data.size)
+        setSkip(0)
+      }
+    })
+  }
+
+  const loadMore = () => {
+    let toSkip = skip + limit
+
+    getFilteredProducts(toSkip, limit, myFilters.filters).then(data => {
+      if (data.error) {
+        setError(data.error)
+      } else {
+        setFilteredResults([...filteredResults, ...data.data])
+        setSize(data.size)
+        setSkip(toSkip)
       }
     })
   }
@@ -72,6 +90,17 @@ const Shop = () => {
     return array
   }
 
+  const loadMoreButton = () => {
+    return (
+      size > 0 &&
+      size >= limit && (
+        <button onClick={loadMore} className='btn btn-primary'>
+          load more
+        </button>
+      )
+    )
+  }
+
   return (
     <Layout title='Shop Page'>
       <div className='shop-wrapper'>
@@ -93,7 +122,14 @@ const Shop = () => {
           </div>
         </aside>
         <section className='col main-content'>
-          {JSON.stringify(filteredResults)}
+          <h2 className='col-title'>Products</h2>
+          <div className='products-wrapper products-shop-wrapper'>
+            {filteredResults &&
+              filteredResults.map((product, index) => {
+                return <ProductCard key={index} product={product} />
+              })}
+          </div>
+          {loadMoreButton()}
         </section>
       </div>
     </Layout>

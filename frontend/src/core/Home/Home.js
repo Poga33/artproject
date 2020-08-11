@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { getProducts } from '../apiCore'
 import Layout from '../Layout/Layout'
 import ProductCard from '../ProductCard/ProductCard'
+import Search from '../Search/Search'
 
 import './Home.scss'
 
@@ -38,6 +39,7 @@ const Home = () => {
 
   return (
     <Layout title='Home Page'>
+      <Search />
       <h2 className='products-section-title'>New Products</h2>
       <section className='products-wrapper'>
         {productsByArrival.map((product, index) => {

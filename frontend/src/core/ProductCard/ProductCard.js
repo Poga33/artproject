@@ -5,9 +5,13 @@ import ShowImage from './ShowImage'
 
 import './ProductCard.scss'
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, third, half }) => {
   return (
-    <div className='product-card'>
+    <div
+      className={`product-card ${third ? 'product-card-third' : ''} ${
+        half ? 'product-card-half' : ''
+      }`}
+    >
       <div className='card-body'>
         <ShowImage item={product} url='product' />
         <h3 className='product-title'>{product.name}</h3>

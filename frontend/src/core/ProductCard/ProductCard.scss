@@ -10,6 +10,14 @@
   padding: 1.5rem;
   text-align: center;
 
+  &-third {
+    flex-basis: calc(33.33% - 2rem);
+  }
+
+  &-half {
+    flex-basis: calc(50% - 2rem);
+  }
+
   .card-body {
     flex: 1 0 0;
   }

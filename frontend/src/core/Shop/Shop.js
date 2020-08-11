@@ -126,7 +126,7 @@ const Shop = () => {
           <div className='products-wrapper products-shop-wrapper'>
             {filteredResults &&
               filteredResults.map((product, index) => {
-                return <ProductCard key={index} product={product} />
+                return <ProductCard third key={index} product={product} />
               })}
           </div>
           {loadMoreButton()}

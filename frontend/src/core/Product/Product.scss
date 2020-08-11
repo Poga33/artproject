@@ -1,0 +1,11 @@
+.single-product-wrapper {
+  display: flex;
+
+  .product {
+    flex-basis: 70%;
+  }
+
+  .related-products {
+    flex-basis: 30%;
+  }
+}

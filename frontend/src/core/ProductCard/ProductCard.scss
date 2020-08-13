@@ -10,12 +10,20 @@
   padding: 1.5rem;
   text-align: center;
 
+  &-single {
+    text-align: left;
+  }
+
   &-third {
     flex-basis: calc(33.33% - 2rem);
   }
 
   &-half {
     flex-basis: calc(50% - 2rem);
+  }
+
+  &-full {
+    flex-basis: 100%;
   }
 
   .card-body {
@@ -45,6 +53,20 @@
     a {
       margin: 0 0.5rem;
       display: inline-block;
+    }
+  }
+
+  .product-details {
+    margin-bottom: 2rem;
+
+    ul {
+      list-style: disc;
+      padding: 0 1.5rem;
+      font-size: 1.8rem;
+
+      li {
+        padding: 1rem;
+      }
     }
   }
 }

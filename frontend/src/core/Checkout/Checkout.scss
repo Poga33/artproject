@@ -1,6 +1,41 @@
+@import '../../styles/variables/colors';
+
 .checkout {
+  position: relative;
+
+  .loading {
+    background: rgba(106, 0.5, 0.5, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+    border-radius: 0.5rem;
+    font-size: 2rem;
+    margin: 0;
+  }
+
   .checkout-title {
     text-transform: uppercase;
     font-weight: 700;
+  }
+
+  .notification {
+    font-weight: 700;
+    font-size: 1.8rem;
+
+    &.error {
+      color: $mainRed;
+    }
+
+    &.success {
+      color: $greenLight;
+    }
   }
 }

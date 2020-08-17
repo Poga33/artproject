@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 
 import { getCategories, getFilteredProducts } from '../apiCore'
 import Layout from '../Layout/Layout'
@@ -33,17 +33,20 @@ const Shop = () => {
     })
   }
 
-  const loadFilteredResults = newFilters => {
-    getFilteredProducts(skip, limit, newFilters).then(data => {
-      if (data.error) {
-        setError(data.error)
-      } else {
-        setFilteredResults(data.data)
-        setSize(data.size)
-        setSkip(0)
-      }
-    })
-  }
+  const loadFilteredResults = useCallback(
+    newFilters => {
+      getFilteredProducts(skip, limit, newFilters).then(data => {
+        if (data.error) {
+          setError(data.error)
+        } else {
+          setFilteredResults(data.data)
+          setSize(data.size)
+          setSkip(0)
+        }
+      })
+    },
+    [skip, limit]
+  )
 
   const loadMore = () => {
     let toSkip = skip + limit
@@ -62,7 +65,7 @@ const Shop = () => {
   useEffect(() => {
     init()
     loadFilteredResults(skip, limit, myFilters.filters)
-  }, [])
+  }, [loadFilteredResults, skip, limit, myFilters.filters])
 
   const handleFilters = (filters, filterBy) => {
     const newFilters = { ...myFilters }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 
 import Layout from '../core/Layout/Layout'
@@ -26,7 +26,7 @@ const AddProduct = () => {
   })
 
   // load categories and set form data
-  const init = () => {
+  const init = useCallback(() => {
     getCategories().then(data => {
       if (data.error) {
         setValues({ ...values, error: data.error })
@@ -34,11 +34,11 @@ const AddProduct = () => {
         setValues({ ...values, categories: data, formData: new FormData() })
       }
     })
-  }
+  }, [])
 
   useEffect(() => {
     init()
-  }, [])
+  }, [init])
 
   const handleChange = name => e => {
     const value = name === 'photo' ? e.target.files[0] : e.target.value

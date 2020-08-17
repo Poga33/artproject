@@ -1,12 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import moment from 'moment'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
+
+import { addItem } from '../Cart/cartHelpers'
 
 import ShowImage from './ShowImage'
 
 import './ProductCard.scss'
 
 const ProductCard = ({ product, third, half, full, isSingleProduct }) => {
+  const [redirect, setRedirect] = useState(false)
+
+  const addToCart = () => {
+    addItem(product, () => {
+      setRedirect(true)
+    })
+  }
+
+  const shouldRedirect = redirect => {
+    if (redirect) {
+      return <Redirect to='/cart' />
+    }
+  }
+
   return (
     <div
       className={`product-card ${
@@ -16,6 +32,8 @@ const ProductCard = ({ product, third, half, full, isSingleProduct }) => {
       }${half ? 'product-card-half' : ''}`}
     >
       <div className='card-body'>
+        {shouldRedirect(redirect)}
+
         <ShowImage item={product} url='product' />
         {!isSingleProduct && <h3 className='product-title'>{product.name}</h3>}
 
@@ -54,9 +72,9 @@ const ProductCard = ({ product, third, half, full, isSingleProduct }) => {
           </Link>
         )}
 
-        <Link to='/'>
-          <button className='btn btn-secondary'>add to cart</button>
-        </Link>
+        <button onClick={addToCart} className='btn btn-secondary'>
+          add to cart
+        </button>
       </div>
     </div>
   )

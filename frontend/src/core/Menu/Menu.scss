@@ -17,6 +17,7 @@
   }
 
   .nav-link {
+    position: relative;
     margin: 0 1rem;
     text-transform: uppercase;
 
@@ -28,5 +29,9 @@
 
   .logo-link img {
     width: 20rem;
+  }
+
+  .cart-badge {
+    display: inline-block;
   }
 }

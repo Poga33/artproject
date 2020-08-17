@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 
 import { signout, isAuthenticated } from '../../auth/index'
+import { itemTotal } from '../Cart/cartHelpers'
 
 import './Menu.scss'
 import logo from '../../images/logo.png'
@@ -37,6 +38,15 @@ const Menu = ({ history }) => {
               to='/shop'
             >
               Shop
+            </Link>
+          </li>
+
+          <li className='nav-item'>
+            <Link
+              className={`nav-link ${isActive(history, '/cart')}`}
+              to='/cart'
+            >
+              Cart <span className='cart-badge'>({itemTotal()})</span>
             </Link>
           </li>
 

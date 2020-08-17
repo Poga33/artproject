@@ -1,0 +1,14 @@
+@import '../../styles/variables/colors';
+
+.cart-wrapper {
+  display: flex;
+
+  .col {
+    flex-basis: 50%;
+  }
+
+  .cart-info {
+    border-left: 1px solid $lightGray;
+    padding-left: 2rem;
+  }
+}

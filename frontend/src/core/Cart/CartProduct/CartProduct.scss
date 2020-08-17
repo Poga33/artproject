@@ -1,0 +1,68 @@
+@import '../../../styles/variables/colors';
+
+.cart-product {
+  border-bottom: 0.1rem solid $lightGray;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+
+  &:last-of-type {
+    border-bottom: 0;
+  }
+
+  .product-title {
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .image {
+    flex-basis: 30rem;
+    margin-right: 2rem;
+
+    .product-image img {
+      max-width: 100%;
+    }
+  }
+
+  .details {
+    p {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+      span {
+        font-weight: 700;
+      }
+    }
+  }
+
+  .product-quantity {
+    input {
+      margin-top: 0.5rem;
+    }
+    margin-top: 2rem;
+  }
+
+  .buttons {
+    flex-basis: 100%;
+
+    button {
+      margin-right: 2rem;
+    }
+  }
+
+  .stock-badge {
+    padding: 0 1rem;
+    border-radius: 0.5rem;
+    color: $white;
+    display: inline-block;
+    margin-left: 0.5rem;
+  }
+
+  .stock-available {
+    background: $greenLight;
+  }
+
+  .stock-unavailable {
+    background: $mainRed;
+  }
+}
